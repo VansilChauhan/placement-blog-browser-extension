@@ -1,15 +1,56 @@
 {
   "manifest_version": 3,
   "name": "placement-blog",
-  "version": "1.1",
+  "version": "1.6",
   "description": "Clicks through Student -> Blog -> SSO login to reach the placement blog.",
-  "action": { "default_title": "Open placement blog (auto login)" },
-  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "Open placement blog (auto login)"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["*://campus.placements.iitb.ac.in/*"],
-      "js": ["content.js"],
+      "matches": [
+        "*://campus.placements.iitb.ac.in/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://campus.placements.iitb.ac.in/blog/*"
+      ],
+      "js": [
+        "reader.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://campus.placements.iitb.ac.in/*"
+      ],
+      "exclude_matches": [
+        "*://campus.placements.iitb.ac.in/blog/*"
+      ],
+      "js": [
+        "jobs-dark.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://campus.placements.iitb.ac.in/*"
+      ],
+      "exclude_matches": [
+        "*://campus.placements.iitb.ac.in/blog/*"
+      ],
+      "js": [
+        "job-summary.js"
+      ],
+      "run_at": "document_idle"
     }
   ]
 }

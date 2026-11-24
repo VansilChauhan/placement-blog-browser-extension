@@ -1,3 +1,4 @@
+(() => { // own scope: all content scripts share one global namespace
 // Flow:
 //   1. https://campus.placements.iitb.ac.in/   -> auto-clicks "Student"
 //   2. /applicant/home                          -> nothing automatic; you choose. If you click
@@ -40,3 +41,4 @@ if (/\/blog\/?$/.test(location.pathname) && location.hash === "#autologin") {
   console.log("[autologin] going to SSO login");
   location.replace(BLOG_LOGIN);
 }
+})();
