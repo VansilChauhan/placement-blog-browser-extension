@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "placement-blog",
+  "version": "1.1",
+  "description": "Clicks through Student -> Blog -> SSO login to reach the placement blog.",
+  "action": { "default_title": "Open placement blog (auto login)" },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["*://campus.placements.iitb.ac.in/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
