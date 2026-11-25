@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "placement-blog",
-  "version": "1.6",
-  "description": "Clicks through Student -> Blog -> SSO login to reach the placement blog.",
+  "version": "1.7",
+  "description": "Auto-login to the placement blog, comfortable reading, and desktop alerts for new posts.",
   "action": {
     "default_title": "Open placement blog (auto login)"
   },
@@ -52,5 +52,18 @@
       ],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "permissions": [
+    "alarms",
+    "notifications",
+    "storage",
+    "offscreen",
+    "background"
+  ],
+  "host_permissions": [
+    "*://campus.placements.iitb.ac.in/*"
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
 }
